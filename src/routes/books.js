@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const bookController = require("../controllers/bookController");
+const bookController = require("../controllers/books");
 const { validateBook } = require("../middleware/validate");
 
 router.get("/", bookController.getAllBooks);
