@@ -4,17 +4,30 @@ const bookSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: [true, "Заголовок обязателен"],
-      minlength: [2, "Заголовок должен содержать минимум 2 символа"],
+      required: true,
+      minlength: 2,
+      trim: true,
     },
     author: {
       type: String,
-      required: [true, "Автор обязателен"],
-      minlength: [2, "Имя автора должно содержать минимум 2 символа"],
+      required: true,
+      minlength: 2,
+      trim: true,
     },
     year: {
       type: Number,
-      required: [true, "Год выпуска обязателен"],
+      required: true,
+      min: 0,
+      max: new Date().getFullYear(),
+    },
+    isAvailable: {
+      type: Boolean,
+      default: true,
+    },
+    borrowedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      default: null,
     },
   },
   {

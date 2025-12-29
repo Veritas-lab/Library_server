@@ -4,19 +4,22 @@ const userSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: [true, "Имя обязательно"],
-      minlength: [2, "Имя должно содержать минимум 2 символа"],
+      required: true,
+      minlength: 2,
+      trim: true,
     },
     lastName: {
       type: String,
-      required: [true, "Фамилия обязательна"],
-      minlength: [2, "Фамилия должна содержать минимум 2 символа"],
+      required: true,
+      minlength: 2,
+      trim: true,
     },
     username: {
       type: String,
-      required: [true, "Username обязателен"],
-      minlength: [5, "Username должен содержать минимум 5 символов"],
+      required: true,
+      minlength: 5,
       unique: true,
+      trim: true,
     },
   },
   {
